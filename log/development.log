@@ -1,0 +1,128 @@
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-09-07 00:59:35 +0530
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/articles/index.html.erb:7
+  Rendered articles/_article.html.erb (Duration: 0.9ms | Allocations: 258)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  [1m[36mArticle Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:17
+  Rendered articles/index.html.erb within layouts/application (Duration: 27.1ms | Allocations: 11818)
+  Rendered layout layouts/application.html.erb (Duration: 87.8ms | Allocations: 45745)
+Completed 200 OK in 99ms (Views: 89.6ms | ActiveRecord: 1.1ms | Allocations: 51833)
+
+
+Started GET "/service-worker.js" for ::1 at 2022-09-07 00:59:37 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  
+Started POST "/articles/scrape" for ::1 at 2022-09-07 00:59:37 +0530
+Processing by ArticlesController#scrape as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "The market for tiny satellites is going to be hugeFleets of small satellites can gather far more accurate and timely data than conventional satellites. And investors..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/cubesatfront1-1.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/market-tiny-satellites-going-huge"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "The startup that may be on the cusp of revolutionizing the satellite industrySpire's satellites fit in the palm of your hand, cost a fraction of their predecessors, and transmit more data than..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/cubesatfront2.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/entrepreneurship-innovation/startup-may-cusp-revolutionizing-satellite-industry"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This week in ideas: Using drones for medicine, fighting Zika, re-imagining passwordsReimagining how we get medicine to people, using genetically modified mosquitoes to fight Zika, and selfies as..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/dronefront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/science/week-ideas-using-drones-medicine-fighting-zika-re-imagining-passwords"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Here's what happens to the human body in outer spaceAs the idea of colonizing space becomes mainstream, it’s important to keep in mind that traveling in outer space..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/bodyinspacefront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/heres-happens-human-body-outer-space"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "What happens when stuff breaks in space?Despite rigorous prep, astronauts often have to improvise when things go wrong in space. And a lot more duct tape..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/07132016-02-front.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/happens-stuff-breaks-space"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Why this startup believes 3D printing in space will be a game changerSending things into space is really expensive. But what if we didn't have to? What if everything in space was made..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/misfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/entrepreneurship-innovation/3d-printing-space-big-deal"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "What a controversial asteroid mission tells us about US space policyBillions spent on projects of questionable benefit - like the plan to capture an asteroid - raises the question:..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/asteroidfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/controversial-asteroid-mission-tells-us-u-s-space-policy"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Where did the commercial space sector come from?Private companies have worked with NASA for decades. Can the next generation of space companies get by without the..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/davisfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/commercial-space-sector-come"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Can XCOR build the world's first airline for space?Out of a small hangar in the Mojave Desert, XCOR is developing a rocket ship designed to fly to space four times a..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/xcorfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/can-xcor-build-worlds-first-airline-space"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This week in ideas: Rockets in flight, poverty in decline, and explaining the unexplainableA step forward for space tourism, extreme poverty could be on its way out, and illustrating advanced tech. These..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/blueoriginfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/week-ideas-rockets-flight-poverty-decline-explaining-unexplainable"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "The new space race is hereOur new show will introduce you to the people and the technology that could make humans a multi-planetary species..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/NSRfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/new-space-race"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "The fake disease that saved Rome's JewsDr. Giovanni Borromeo dreamed up a brilliant scheme that saved dozens of Jewish families in Rome from Nazi..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/boroomeofront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/culture/fake-disease-saved-romes-jews"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This week in ideas: An artificial pancreas, Google's new translation tech, and a massive Mars rocketAn incredible medical breakthrough, Google ups the ante, and the SpaceX Mars rocket. These are our favorite stories..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/rocketfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/science/week-ideas-artificial-pancreas-googles-new-translation-tech-massive-mars-rocket"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "What to expect in a post-meat futureFrom advanced plant-based meat alternatives to real meat grown in a lab, the days of eating meat from once-living..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/meatlessfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/science/expect-post-meat-future"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Elon Musk explains the economics of getting to MarsThe SpaceX founder gave a rousing presentation on his company’s long-term plan for getting to Mars and establishing..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/marsfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/space/elon-musk-explains-economics-getting-mars"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This week in ideas: How VR changes our dreams, a stem cell miracle, and the shoes of the futureVirtual reality users experience more lucid dreams, a paralyzed man gets movement back, and self-lacing shoes...."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/VRfront-1.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/technology/week-ideas-vr-changes-dreams-stem-cell-miracle-shoes-future"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This computer can write 2,000 snarky articles per secondWhat does it mean for the future of journalism when a computer can turn mounds of data into a cohesive narrative?"], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/NGLfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/technology/robot-can-write-2000-snarky-articles-per-second"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "This Army sergeant started a 24-hour hotline for service members with PTSDFirst Sgt. Landon Jackson battled with severe PTSD and turned his experience into a 24 hour hotline that gives..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/Jacksonfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/social-change/sergeant-started-24-hour-hotline-fellow-vets-ptsd"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Self-driving cars are finally here. Sort of.Uber rolled out self-driving cars in Pittsburgh, but they're not totally autonomous. Yet. Under Pennsylvania law,..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/driverlessfront.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/technology/self-driving-cars-finally-sort-of"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ? AND "articles"."image_link" = ? AND "articles"."news_page_link" = ? ORDER BY "articles"."id" ASC LIMIT ?[0m  [["title", "Meet the wounded veteran using bionics to take back his independenceJerral lost his left arm in Iraq. Now he's working with a team from Johns Hopkins to test a prosthetic arm that..."], ["image_link", "https://www.freethink.com/wp-content/uploads/2021/04/jerralfront-1.jpg?w=533&h=300&crop=1"], ["news_page_link", "https://www.freethink.com/social-change/meet-wounded-vet-using-bionics-take-back-independence"], ["LIMIT", 1]]
+  ↳ app/models/article_spider.rb:19:in `block (2 levels) in process'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 2937ms (ActiveRecord: 3.4ms | Allocations: 25992)
+
+
+Started GET "/articles" for ::1 at 2022-09-07 00:59:40 +0530
+Processing by ArticlesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/views/articles/index.html.erb:7
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered articles/_article.html.erb (Duration: 0.1ms | Allocations: 28)
+  [1m[36mArticle Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:17
+  Rendered articles/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 4646)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 6841)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.3ms | Allocations: 7287)
+
+
+Started GET "/service-worker.js" for ::1 at 2022-09-07 01:00:11 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/service-worker.js"):
+  

@@ -1,0 +1,17 @@
+<h2 style="color: green"><%= notice %></h2>
+<%= button_to 'Scrape', scrape_articles_path %>
+<%= link_to 'View Json', articles_path(format: :json) %>
+<h1>Articles</h1>
+
+<div id="articles">
+  <% @articles.each do |article| %>
+    <%= render article %>
+    <p>
+      <%= link_to "Show this article", article %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New article", new_article_path %>
+
+<%= will_paginate @posts %>
