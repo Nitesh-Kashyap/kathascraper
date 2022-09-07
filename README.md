@@ -12,7 +12,8 @@ I am assuming you have setup ruby and rails in your machine. If not, I would req
 
 So, without delay, let’s start by creating a new Rails application.
 
-Step - 1
+# step - 1
+
 Go to terminal and type following commands:
 
 $> rails new kathascraper
@@ -22,6 +23,7 @@ Now open the Gemfile in your editor and add this at the bottom.
 
 gem "mechanize"
 gem 'will_paginate', '~> 3.3'
+
 then run following commands in your terminal:
 
 $> bundle install
@@ -31,16 +33,20 @@ $> rails server
 This will setup mechanize gem, create database and start the rails application. At this point, if you open browser and go to http://localhost:3000, you should see the default rails running page.
 
 # step - 2
+
 Now let’s create a scaffold to add interface and store scraped data in to the database. In your terminal, type following commands:
 
 $> rails g scaffold article title image_link news_feed_link
 $> rails db:migrate
+
 This generates necessary model, controller and view files to display and process vehicles data.
 
 Above code also adds articles resource routes to config/routes.rb file. We will update the file to include two more route entries. First — A post request to scrape url action. Second — a default route to application index page.
 
 # step - 3
+
 The config/routes.rb file should look like this:
+
 Rails.application.routes.draw do
   resources :articles do
     match '/scrape', to: 'articles#scrape', via: :post, on: :collection
@@ -48,17 +54,23 @@ Rails.application.routes.draw do
 
   root to: 'articles#index'
 end
+
 This adds a new routes helper — scrape_articles_path which we can use to add a Scrape link in next step
 
-#step - 4
+# step - 4
+
 Now let’s add a button in the index page to start scraping. Open app/views/articles/index.html.erb and add following code at the top of the page:
 
 <%= button_to 'Scrape', scrape_articles_path %>
+
 Now refreshing the browser should display vehicles index page:
+
 Clicking the Scrape button should redirect to scrape action of articles controller. However we haven’t created the controller action. So let’s add that code now.
 
 # step - 5
+
 Open app/controllers/articles_controller.rb file to add scrape action as shown below:
+
 def scrape
     url = 'https://www.freethink.com/articles/'
     response = ScraperService.process(url)
@@ -71,12 +83,14 @@ def scrape
   end
   
   At the same time, let’s also add a view file for scrape action. Create a new file as app/views/articles/scrape.html.erb and add the following code.
-  <p style="color: green"><%= notice %></p>
+
+<p style="color: green"><%= notice %></p>
   <p style="color: red"><%= alert %></p>
   <%= link_to "Back", root_path %>
   
   Now let’s add ScraperService code that does the magic of scraping, by creating a new file as app/services/scraper_service.rb
-  class ScraperService < ApplicationService
+
+class ScraperService < ApplicationService
   def self.process(url)
     pages_count = 1
     loop do
@@ -99,8 +113,10 @@ def scrape
     end
   end
 end
+                                         
 
-Step 6
+# step - 6
+                                         
 If you go to our scrape url, you will see how the data is structured inside html tags.
 Looking at the screen above, we can see that each article information is wrapped inside tags. So, using our mechanize xpath data attributes, we will loop through this tag to grab each article.
 
