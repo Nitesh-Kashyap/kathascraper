@@ -90,7 +90,7 @@ def scrape
   
   Now let’s add ScraperService code that does the magic of scraping, by creating a new file as app/services/scraper_service.rb
 
-class ScraperService < ApplicationService
+    class ScraperService < ApplicationService
   def self.process(url)
     pages_count = 1
     loop do
