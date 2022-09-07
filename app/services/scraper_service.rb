@@ -1,8 +1,8 @@
-require "mechanize" # as of this writing, the latest release is 2.7.4
+# frozen_string_literal: true
 
-class ArticleSpider
+class ScraperService < ApplicationService
   def self.process(url)
-    pages_count = 140
+    pages_count = 1
     loop do
       agent = Mechanize.new
       page = agent.get(url + "?paging=#{pages_count}")

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def scrape
     url = 'https://www.freethink.com/articles/'
-    response = ArticleSpider.process(url)
+    response = ScraperService.process(url)
     respond_to do |format|
       format.html { redirect_to articles_url, notice: "Articles scraping Done." }
       format.json { head :no_content }
